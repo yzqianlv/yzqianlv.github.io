@@ -4,9 +4,9 @@
   <subtitle>愚者千虑，必有一得。</subtitle>
   <link href="/atom.xml" rel="self"/>
   
-  <link href="https://qianlv.me/"/>
-  <updated>2017-06-21T03:42:54.657Z</updated>
-  <id>https://qianlv.me/</id>
+  <link href="http://qianlv.me/"/>
+  <updated>2017-06-22T15:33:22.772Z</updated>
+  <id>http://qianlv.me/</id>
   
   <author>
     <name>小树</name>
@@ -17,10 +17,10 @@
   
   <entry>
     <title>Sublime-Text-License</title>
-    <link href="https://qianlv.me/2017/06/21/Sublime-Text-License/"/>
-    <id>https://qianlv.me/2017/06/21/Sublime-Text-License/</id>
+    <link href="http://qianlv.me/2017/06/21/Sublime-Text-License/"/>
+    <id>http://qianlv.me/2017/06/21/Sublime-Text-License/</id>
     <published>2017-06-21T03:24:15.000Z</published>
-    <updated>2017-06-21T03:42:54.657Z</updated>
+    <updated>2017-06-22T15:33:22.772Z</updated>
     
     <content type="html"><![CDATA[<p><strong>Sublime Text 2.x (for all Builds)</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">—– BEGIN LICENSE —–</div><div class="line">Andrew Weber</div><div class="line">Single User License</div><div class="line">EA7E-855605</div><div class="line">813A03DD 5E4AD9E6 6C0EEB94 BC99798F</div><div class="line">942194A6 02396E98 E62C9979 4BB979FE</div><div class="line">91424C9D A45400BF F6747D88 2FB88078</div><div class="line">90F5CC94 1CDC92DC 8457107A F151657B</div><div class="line">1D22E383 A997F016 42397640 33F41CFC</div><div class="line">E1D0AE85 A0BBD039 0E9C8D55 E1B89D5D</div><div class="line">5CDB7036 E56DE1C0 EFCC0840 650CD3A6</div><div class="line">B98FC99C 8FAC73EE D2B95564 DF450523</div><div class="line">—— END LICENSE ——</div></pre></td></tr></table></figure></p>
 <p><strong>Sublime Text 3.x (before Build 309X)</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div></pre></td><td class="code"><pre><div class="line">—– BEGIN LICENSE —–</div><div class="line">Andrew Weber</div><div class="line">Single User License</div><div class="line">EA7E-855605</div><div class="line">813A03DD 5E4AD9E6 6C0EEB94 BC99798F</div><div class="line">942194A6 02396E98 E62C9979 4BB979FE</div><div class="line">91424C9D A45400BF F6747D88 2FB88078</div><div class="line">90F5CC94 1CDC92DC 8457107A F151657B</div><div class="line">1D22E383 A997F016 42397640 33F41CFC</div><div class="line">E1D0AE85 A0BBD039 0E9C8D55 E1B89D5D</div><div class="line">5CDB7036 E56DE1C0 EFCC0840 650CD3A6</div><div class="line">B98FC99C 8FAC73EE D2B95564 DF450523</div><div class="line">—— END LICENSE ——</div><div class="line"></div><div class="line">-------------------------------------------------------</div><div class="line"></div><div class="line">—– BEGIN LICENSE —–</div><div class="line">K-20</div><div class="line">Single User License</div><div class="line">EA7E-940129</div><div class="line">3A099EC1 C0B5C7C5 33EBF0CF BE82FE3B</div><div class="line">EAC2164A 4F8EC954 4E87F1E5 7E4E85D6</div><div class="line">C5605DE6 DAB003B4 D60CA4D0 77CB1533</div><div class="line">3C47F579 FB3E8476 EB3AA9A7 68C43CD9</div><div class="line">8C60B563 80FE367D 8CAD14B3 54FB7A9F</div><div class="line">4123FFC4 D63312BA 141AF702 F6BBA254</div><div class="line">B094B9C0 FAA4B04C 06CC9AFC FD412671</div><div class="line">82E3AEE0 0F0FAAA7 8FA773C9 383A9E18</div><div class="line">—— END LICENSE ——</div><div class="line"></div><div class="line">-------------------------------------------------------</div><div class="line"></div><div class="line">—– BEGIN LICENSE —–</div><div class="line">J2TeaM</div><div class="line">2 User License</div><div class="line">EA7E-940282</div><div class="line">45CB0D8F 09100037 7D1056EB A1DDC1A2</div><div class="line">39C102C5 DF8D0BF0 FC3B1A94 4F2892B4</div><div class="line">0AEE61BA 65758D3B 2EED551F A3E3478C</div><div class="line">C1C0E04E CA4E4541 1FC1A2C1 3F5FB6DB</div><div class="line">CFDA1551 51B05B5D 2D3C8CFE FA8B4285</div><div class="line">051750E3 22D1422A 7AE3A8A1 3B4188AC</div><div class="line">346372DA 37AA8ABA 6EB30E41 781BC81F</div><div class="line">B5CA66E3 A09DBD3A 3FE85BBD 69893DBD</div><div class="line">—— END LICENSE ——</div></pre></td></tr></table></figure></p>
@@ -34,12 +34,14 @@
     
     </summary>
     
+      <category term="Sublime text" scheme="http://qianlv.me/categories/Sublime-text/"/>
     
-      <category term="Sublime" scheme="https://qianlv.me/tags/Sublime/"/>
     
-      <category term="License" scheme="https://qianlv.me/tags/License/"/>
+      <category term="Sublime" scheme="http://qianlv.me/tags/Sublime/"/>
     
-      <category term="Sublime Text" scheme="https://qianlv.me/tags/Sublime-Text/"/>
+      <category term="License" scheme="http://qianlv.me/tags/License/"/>
+    
+      <category term="Sublime Text" scheme="http://qianlv.me/tags/Sublime-Text/"/>
     
   </entry>
   
