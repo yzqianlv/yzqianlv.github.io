@@ -588,7 +588,7 @@
 <li>output 方法不能保证线程间的同步互斥运行</li>
 <li>output1 使用 <strong>当前对象</strong> 作为锁对象的同步代码块方式,可以实现同步互斥.</li>
 <li>output2 使用 <strong>当前对象</strong> 作为锁对象的同步方法方式,可以实现同步互斥.</li>
-<li>output3 静态同步方法使用 <strong>类对象(Outputer.clss)</strong> 作为锁对象,实现同步互斥.<table><br><caption>output1与其他方法之间的同步互斥关系</caption><br><tr><br> <td>方法名</td><br> <td>是否同步互斥</td><br></tr><br><tr><br> <td>output</td><br> <td>否</td><br></tr><br><tr><br> <td>output2</td><br> <td>是</td><br></tr><br><tr><br> <td>output3</td><br> <td>否</td><br></tr><br></table>
+<li>output3 静态同步方法使用 <strong>类对象(Outputer.clss)</strong> 作为锁对象,实现同步互斥.<table><caption>output1与其他方法之间的同步互斥关系</caption><tr><td>方法名</td><td>是否同步互斥</td></tr><tr><td>output</td><td>否</td></tr><tr><td>output2</td><td>是</td></tr><tr><td>output3</td><td>否</td></tr></table>
 </li>
 </ol>
 
