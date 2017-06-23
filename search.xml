@@ -1,11 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[三个线程交替打印字符串]]></title>
+    <url>%2F2017%2F06%2F24%2F%E4%B8%89%E4%B8%AA%E7%BA%BF%E7%A8%8B%E4%BA%A4%E6%9B%BF%E6%89%93%E5%8D%B0%E5%AD%97%E7%AC%A6%E4%B8%B2%2F</url>
+    <content type="text"><![CDATA[题: 使用多线程交替打印输出字符串.如字符串”abcdefghijklmnopqrstuvwsxz….”,有三个线程,按照如下所示输出:12345线程1: abc jkl ...线程2: def mno ...线程3: ghi pqr ...]]></content>
+      <categories>
+        <category>java</category>
+        <category>多线程</category>
+        <category>面试</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+        <tag>多线程</tag>
+        <tag>面试</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[传统线程互斥技术]]></title>
     <url>%2F2017%2F06%2F23%2F%E4%BC%A0%E7%BB%9F%E7%BA%BF%E7%A8%8B%E4%BA%92%E6%96%A5%E6%8A%80%E6%9C%AF%2F</url>
     <content type="text"><![CDATA[传统线程的互斥 同步代码块 同步方法 1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768697071727374757677package me.qianlv.thread;/** * Created by 小树 on 2017/6/23. * * 传统多线程的互斥技术 */public class TraditionalThreadSynchronized &#123; public static void main(String[] args) &#123; new TraditionalThreadSynchronized().init(); &#125; public void init() &#123; final Outputer outputer = new Outputer(); new Thread(new Runnable() &#123; public void run() &#123; while (true) &#123; try &#123; Thread.sleep(10); &#125; catch (InterruptedException e) &#123; e.printStackTrace(); &#125; outputer.output(&quot;xiaoshu&quot;); &#125; &#125; &#125;).start(); new Thread(new Runnable() &#123; public void run() &#123; while (true) &#123; try &#123; Thread.sleep(100); &#125; catch (InterruptedException e) &#123; e.printStackTrace(); &#125; outputer.output(&quot;Hello World!&quot;); &#125; &#125; &#125;).start(); &#125; static class Outputer &#123; public void output(String charset) &#123; int len = charset.length(); for (int i = 0; i &lt; len; i++) &#123; System.out.print(charset.charAt(i)); &#125; System.out.println(); &#125; public void output1(String charset) &#123; int len = charset.length(); synchronized (this) &#123; for (int i = 0; i &lt; len; i++) &#123; System.out.print(charset.charAt(i)); &#125; System.out.println(); &#125; &#125; public synchronized void output2(String charset) &#123; int len = charset.length(); for (int i = 0; i &lt; len; i++) &#123; System.out.print(charset.charAt(i)); &#125; System.out.println(); &#125; public static synchronized void output3(String charset) &#123; int len = charset.length(); for (int i = 0; i &lt; len; i++) &#123; System.out.print(charset.charAt(i)); &#125; System.out.println(); &#125; &#125;&#125; 以上四个方法的同步互斥关系 output 方法不能保证线程间的同步互斥运行 output1 使用 当前对象 作为锁对象的同步代码块方式,可以实现同步互斥. output2 使用 当前对象 作为锁对象的同步方法方式,可以实现同步互斥. output3 静态同步方法使用 类对象(Outputer.clss) 作为锁对象,实现同步互斥.output1与其他方法之间的同步互斥关系 方法名 是否同步互斥 output 否 output2 是 output3 否]]></content>
       <categories>
-        <category>java - 多线程</category>
+        <category>java</category>
+        <category>多线程</category>
       </categories>
       <tags>
         <tag>java</tag>
@@ -17,7 +33,8 @@
     <url>%2F2017%2F06%2F23%2F%E5%AE%9A%E6%97%B6%E5%99%A8Timer%2F</url>
     <content type="text"><![CDATA[123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172package me.qianlv.thread;import java.util.Date;import java.util.Timer;import java.util.TimerTask;/** * Created by 小树 on 2017/6/23. */public class TraditionalTimerTest &#123; private static int count = 0; public static void main(String[] args) &#123; /** * 10秒后,第一次运行,每隔3秒运行一次. */ /* new Timer().schedule(new TimerTask() &#123; @Override public void run() &#123; System.out.println(&quot;bombing&quot;); &#125; &#125;, 10000, 3000);*/ /** * 2秒后运行,每隔2秒运行一次,每隔4秒运行一次,交替运行. * * 第一种实现方式,使用全局变量 */ /*class MyTimer extends TimerTask &#123; public void run() &#123; count = (count + 1) % 2; System.out.println(&quot;bombing!&quot;); new Timer().schedule(new MyTimer(), 2000 + 2000 * count); &#125; &#125; new Timer().schedule(new MyTimer(), 2000);*/ /** * 2秒后运行,每隔2秒运行一次,每隔4秒运行一次,交替运行. * * 第二种实现方式,创建两个对象,互相调用,互相构造 */ class MyTimerTask2 extends TimerTask &#123; class MyTimerTask4 extends TimerTask &#123; @Override public void run() &#123; System.out.println(&quot;bombing!&quot;); new Timer().schedule(new MyTimerTask2(), 2000); &#125; &#125; @Override public void run() &#123; System.out.println(&quot;bombing!&quot;); new Timer().schedule(new MyTimerTask4(), 4000); &#125; &#125; new Timer().schedule(new MyTimerTask2(), 2000); while (true) &#123; System.out.println(new Date().getSeconds()); try &#123; Thread.sleep(1000); &#125; catch (InterruptedException e) &#123; e.printStackTrace(); &#125; &#125; &#125;&#125;]]></content>
       <categories>
-        <category>java - 多线程</category>
+        <category>java</category>
+        <category>多线程</category>
       </categories>
       <tags>
         <tag>java</tag>
@@ -29,7 +46,8 @@
     <url>%2F2017%2F06%2F23%2F%E4%BC%A0%E7%BB%9F%E5%88%9B%E5%BB%BA%E7%BA%BF%E7%A8%8B%E7%9A%84%E6%96%B9%E5%BC%8F%2F</url>
     <content type="text"><![CDATA[传统创建线程的方式 extends Thread implements Runnable 123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172package me.qianlv;public class TraditionalThread &#123; public static void main(String[] args) &#123; //创建线程的第一种方式 Thread thread1 = new Thread() &#123; @Override public void run() &#123; while(true)&#123; try &#123; Thread.sleep(500); &#125; catch (InterruptedException e) &#123; // TODO Auto-generated catch block e.printStackTrace(); &#125; System.out.println(&quot;thread 1:&quot; + Thread.currentThread().getName()); &#125; &#125; &#125;; thread1.start(); //创建线程的第二种方式 Thread thread2 = new Thread(new Runnable() &#123; @Override public void run() &#123; while(true)&#123; try &#123; Thread.sleep(500); &#125; catch (InterruptedException e) &#123; // TODO Auto-generated catch block e.printStackTrace(); &#125; System.out.println(&quot;thread 2:&quot; + Thread.currentThread().getName()); &#125; &#125; &#125;); thread2.start(); //下面这种写法，究竟会执行哪个run方法呢？ Thread thread3 = new Thread(new Runnable()&#123; @Override public void run()&#123; while(true)&#123; try &#123; Thread.sleep(500); &#125; catch (InterruptedException e) &#123; // TODO Auto-generated catch block e.printStackTrace(); &#125; System.out.println(&quot;thread 3: Runnable &quot; + Thread.currentThread().getName()); &#125; &#125; &#125;)&#123; @Override public void run()&#123; while(true)&#123; try &#123; Thread.sleep(500); &#125; catch (InterruptedException e) &#123; // TODO Auto-generated catch block e.printStackTrace(); &#125; System.out.println(&quot;thread 3: Thread &quot; + Thread.currentThread().getName()); &#125; &#125; &#125;; thread3.start(); &#125;&#125; 输出结果:123thread 1:Thread-0thread 2:Thread-1thread 3: Thread Thread-2 对于第三种输出结果,利用Java的多态特性即可知道原因.new Thread(){}创建了 Thread 子类,所以在运行的时候,首先会查看子类是否有 run 方法,当有时,执行此子类的方法.]]></content>
       <categories>
-        <category>java - 多线程</category>
+        <category>java</category>
+        <category>多线程</category>
       </categories>
       <tags>
         <tag>java</tag>
