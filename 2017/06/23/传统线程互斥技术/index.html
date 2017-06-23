@@ -87,17 +87,17 @@
 
 
 
-<meta name="description" content="传统创建线程的方式 extends Thread implements Runnable  123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172package me.qianlv;p">
+<meta name="description" content="传统线程的互斥 同步代码块 同步方法  1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768697071727374757677package me.qianlv.thread;/** * Crea">
 <meta name="keywords" content="java,多线程">
 <meta property="og:type" content="article">
-<meta property="og:title" content="传统创建线程的方式">
-<meta property="og:url" content="http://qianlv.me/2017/06/23/传统创建线程的方式/index.html">
+<meta property="og:title" content="传统线程互斥技术">
+<meta property="og:url" content="http://qianlv.me/2017/06/23/传统线程互斥技术/index.html">
 <meta property="og:site_name" content="愚者千虑，必有一得。">
-<meta property="og:description" content="传统创建线程的方式 extends Thread implements Runnable  123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172package me.qianlv;p">
-<meta property="og:updated_time" content="2017-06-23T05:40:10.888Z">
+<meta property="og:description" content="传统线程的互斥 同步代码块 同步方法  1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768697071727374757677package me.qianlv.thread;/** * Crea">
+<meta property="og:updated_time" content="2017-06-23T07:28:55.575Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="传统创建线程的方式">
-<meta name="twitter:description" content="传统创建线程的方式 extends Thread implements Runnable  123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172package me.qianlv;p">
+<meta name="twitter:title" content="传统线程互斥技术">
+<meta name="twitter:description" content="传统线程的互斥 同步代码块 同步方法  1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768697071727374757677package me.qianlv.thread;/** * Crea">
 
 
 
@@ -125,13 +125,13 @@
 
 
 
-  <link rel="canonical" href="http://qianlv.me/2017/06/23/传统创建线程的方式/"/>
+  <link rel="canonical" href="http://qianlv.me/2017/06/23/传统线程互斥技术/"/>
 
 
 
 
 
-  <title> 传统创建线程的方式 | 愚者千虑，必有一得。 </title>
+  <title> 传统线程互斥技术 | 愚者千虑，必有一得。 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -304,7 +304,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://qianlv.me/2017/06/23/传统创建线程的方式/">
+    <link itemprop="mainEntityOfPage" href="http://qianlv.me/2017/06/23/传统线程互斥技术/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="小树">
@@ -325,7 +325,7 @@
             
             
               
-                传统创建线程的方式
+                传统线程互斥技术
               
             
           </h1>
@@ -340,7 +340,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-23T13:31:37+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-23T15:05:50+08:00">
                 2017-06-23
               </time>
             
@@ -398,13 +398,19 @@
       
 
       
-        <h3 id="传统创建线程的方式"><a href="#传统创建线程的方式" class="headerlink" title="传统创建线程的方式"></a>传统创建线程的方式</h3><ol>
-<li>extends Thread</li>
-<li>implements Runnable</li>
+        <h3 id="传统线程的互斥"><a href="#传统线程的互斥" class="headerlink" title="传统线程的互斥"></a>传统线程的互斥</h3><ol>
+<li>同步代码块</li>
+<li>同步方法</li>
 </ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div></pre></td><td class="code"><pre><div class="line">package me.qianlv;</div><div class="line"></div><div class="line">public class TraditionalThread &#123;</div><div class="line">	public static void main(String[] args) &#123;</div><div class="line">		//创建线程的第一种方式</div><div class="line">		Thread thread1 = new Thread() &#123;</div><div class="line">			@Override</div><div class="line">			public void run() &#123;</div><div class="line">				while(true)&#123;</div><div class="line">					try &#123;</div><div class="line">						Thread.sleep(500);</div><div class="line">					&#125; catch (InterruptedException e) &#123;</div><div class="line">						// TODO Auto-generated catch block</div><div class="line">						e.printStackTrace();</div><div class="line">					&#125;</div><div class="line">					System.out.println(&quot;thread 1:&quot; + Thread.currentThread().getName());</div><div class="line">				&#125;</div><div class="line">			&#125;</div><div class="line">		&#125;;</div><div class="line">		thread1.start();</div><div class="line">		</div><div class="line">		//创建线程的第二种方式</div><div class="line">		Thread thread2 = new Thread(new Runnable() &#123;</div><div class="line">			</div><div class="line">			@Override</div><div class="line">			public void run() &#123;</div><div class="line">				while(true)&#123;</div><div class="line">					try &#123;</div><div class="line">						Thread.sleep(500);</div><div class="line">					&#125; catch (InterruptedException e) &#123;</div><div class="line">						// TODO Auto-generated catch block</div><div class="line">						e.printStackTrace();</div><div class="line">					&#125;</div><div class="line">					System.out.println(&quot;thread 2:&quot; + Thread.currentThread().getName());</div><div class="line">				&#125;</div><div class="line">			&#125;</div><div class="line">		&#125;);</div><div class="line">		</div><div class="line">		thread2.start();</div><div class="line">		</div><div class="line">		//下面这种写法，究竟会执行哪个run方法呢？</div><div class="line">		Thread thread3 = new Thread(new Runnable()&#123;</div><div class="line">			@Override</div><div class="line">			public void run()&#123;</div><div class="line">				while(true)&#123;</div><div class="line">					try &#123;</div><div class="line">						Thread.sleep(500);</div><div class="line">					&#125; catch (InterruptedException e) &#123;</div><div class="line">						// TODO Auto-generated catch block</div><div class="line">						e.printStackTrace();</div><div class="line">					&#125;</div><div class="line">					System.out.println(&quot;thread 3: Runnable &quot; + Thread.currentThread().getName());</div><div class="line">				&#125;</div><div class="line">			&#125;</div><div class="line">		&#125;)&#123;</div><div class="line">			@Override</div><div class="line">			public void run()&#123;</div><div class="line">				while(true)&#123;</div><div class="line">					try &#123;</div><div class="line">						Thread.sleep(500);</div><div class="line">					&#125; catch (InterruptedException e) &#123;</div><div class="line">						// TODO Auto-generated catch block</div><div class="line">						e.printStackTrace();</div><div class="line">					&#125;</div><div class="line">					System.out.println(&quot;thread 3: Thread &quot; + Thread.currentThread().getName());</div><div class="line">				&#125;</div><div class="line">			&#125;</div><div class="line">		&#125;;</div><div class="line">		</div><div class="line">		thread3.start();</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="输出结果"><a href="#输出结果" class="headerlink" title="输出结果:"></a>输出结果:</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">thread 1:Thread-0</div><div class="line">thread 2:Thread-1</div><div class="line">thread 3: Thread Thread-2</div></pre></td></tr></table></figure>
-<p>对于第三种输出结果,利用Java的多态特性即可知道原因.<code>new Thread(){}</code>创建了 Thread 子类,所以在运行的时候,首先会查看子类是否有 run 方法,当有时,执行此子类的方法.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div></pre></td><td class="code"><pre><div class="line">package me.qianlv.thread;</div><div class="line"></div><div class="line">/**</div><div class="line"> * Created by 小树 on 2017/6/23.</div><div class="line"> * &lt;p&gt;</div><div class="line"> * 传统多线程的互斥技术</div><div class="line"> */</div><div class="line">public class TraditionalThreadSynchronized &#123;</div><div class="line">    public static void main(String[] args) &#123;</div><div class="line">        new TraditionalThreadSynchronized().init();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    public void init() &#123;</div><div class="line">        final Outputer outputer = new Outputer();</div><div class="line">        new Thread(new Runnable() &#123;</div><div class="line">            public void run() &#123;</div><div class="line">                while (true) &#123;</div><div class="line">                    try &#123;</div><div class="line">                        Thread.sleep(10);</div><div class="line">                    &#125; catch (InterruptedException e) &#123;</div><div class="line">                        e.printStackTrace();</div><div class="line">                    &#125;</div><div class="line">                    outputer.output(&quot;xiaoshu&quot;);</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;).start();</div><div class="line"></div><div class="line">        new Thread(new Runnable() &#123;</div><div class="line">            public void run() &#123;</div><div class="line">                while (true) &#123;</div><div class="line">                    try &#123;</div><div class="line">                        Thread.sleep(100);</div><div class="line">                    &#125; catch (InterruptedException e) &#123;</div><div class="line">                        e.printStackTrace();</div><div class="line">                    &#125;</div><div class="line">                    outputer.output(&quot;Hello World!&quot;);</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;).start();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    static class Outputer &#123;</div><div class="line">        public void output(String charset) &#123;</div><div class="line">            int len = charset.length();</div><div class="line">            for (int i = 0; i &lt; len; i++) &#123;</div><div class="line">                System.out.print(charset.charAt(i));</div><div class="line">            &#125;</div><div class="line">            System.out.println();</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        public void output1(String charset) &#123;</div><div class="line">            int len = charset.length();</div><div class="line">            synchronized (this) &#123;</div><div class="line">                for (int i = 0; i &lt; len; i++) &#123;</div><div class="line">                    System.out.print(charset.charAt(i));</div><div class="line">                &#125;</div><div class="line">                System.out.println();</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        public synchronized void output2(String charset) &#123;</div><div class="line">            int len = charset.length();</div><div class="line">            for (int i = 0; i &lt; len; i++) &#123;</div><div class="line">                System.out.print(charset.charAt(i));</div><div class="line">            &#125;</div><div class="line">            System.out.println();</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        public static synchronized void output3(String charset) &#123;</div><div class="line">            int len = charset.length();</div><div class="line">            for (int i = 0; i &lt; len; i++) &#123;</div><div class="line">                System.out.print(charset.charAt(i));</div><div class="line">            &#125;</div><div class="line">            System.out.println();</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="以上四个方法的同步互斥关系"><a href="#以上四个方法的同步互斥关系" class="headerlink" title="以上四个方法的同步互斥关系"></a>以上四个方法的同步互斥关系</h3><ol>
+<li>output 方法不能保证线程间的同步互斥运行</li>
+<li><p>output1 使用 <strong>当前对象</strong> 作为锁对象的同步代码块方式,可以实现同步互斥.</p>
+<p> output1与其他方法之间的同步互斥关系<br> | 方法名 | 是否互斥 |<br> |:—–:|:——-:|<br> | output | 否 |<br> | output2 | 是 |<br> | output3 | 否 |</p>
+</li>
+<li>output2 使用 <strong>当前对象</strong> 作为锁对象的同步方法方式,可以实现同步互斥.</li>
+<li>output3 静态同步方法使用 <strong>类对象(Outputer.clss)</strong> 作为锁对象,实现同步互斥.</li>
+</ol>
 
       
     </div>
@@ -465,8 +471,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/06/21/Sublime-Text-License/" rel="next" title="Sublime-Text-License">
-                <i class="fa fa-chevron-left"></i> Sublime-Text-License
+              <a href="/2017/06/23/定时器Timer/" rel="next" title="定时器Timer">
+                <i class="fa fa-chevron-left"></i> 定时器Timer
               </a>
             
           </div>
@@ -474,10 +480,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/06/23/定时器Timer/" rel="prev" title="定时器Timer">
-                定时器Timer <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -649,7 +651,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#传统创建线程的方式"><span class="nav-number">1.</span> <span class="nav-text">传统创建线程的方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#输出结果"><span class="nav-number">2.</span> <span class="nav-text">输出结果:</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#传统线程的互斥"><span class="nav-number">1.</span> <span class="nav-text">传统线程的互斥</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#以上四个方法的同步互斥关系"><span class="nav-number">2.</span> <span class="nav-text">以上四个方法的同步互斥关系</span></a></li></ol></div>
             
 
           </div>
